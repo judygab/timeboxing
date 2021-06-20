@@ -20,6 +20,18 @@ const options = {
       from: process.env.EMAIL_FROM,
     }),
   ],
+  session: {
+    jwt: true,
+    maxAge: 30 * 24 * 60 * 60,
+  },
+  callbacks: {
+    redirect: async (url, _) => {
+      if (url === '/api/auth/signin') {
+        return Promise.resolve('/profile')
+      }
+      return Promise.resolve('/api/auth/signin')
+    },
+  },
 }
 
 export default (req, res) => NextAuth(req, res, options)
