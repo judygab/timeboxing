@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "isomorphic-unfetch": "^3.1.0",
     "mongoose": "^5.12.14",
     "next": "10.2.3",
     "next-auth": "^3.26.1",
