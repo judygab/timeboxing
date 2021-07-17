@@ -3,11 +3,12 @@ import Providers from 'next-auth/providers'
 
 const options = {
   site: process.env.NEXTAUTH_URL,
+  database: process.env.DATABASE_URL,
   providers: [
   Providers.Email({
       server: {
-        port: 465,
-        host: 'smtp.gmail.com',
+        port: process.env.EMAIL_SERVER_PORT,
+        host: process.env.EMAIL_SERVER_HOST,
         secure: true,
         auth: {
           user: process.env.EMAIL_USERNAME,
